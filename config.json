@@ -1,0 +1,8 @@
+{
+  "token": "NDI5NjQ2NDA2MDkzODk3NzI4.DaFEAQ.PQpJZ7Ta2BLzZfw1Bcpzwqbj8dg",
+  "bot": {
+    "plugins": [
+      "plugins.sirius"
+    ]
+  }
+}
