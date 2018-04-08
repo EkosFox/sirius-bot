@@ -68,20 +68,21 @@ async def on_message(message):
 				if len(wsm) != 2 and "tomorrow" not in wsm:
 					await client.send_message(message.channel, "!ERROR! : Wrong Syntax!")
 				else:
-					addH = str()
+					addH = ""
 					a = data_organizer(data_fetch(url_builder(wsm[1])))
 					ii = 0
 					for i in a:
 						if ii == 0:
-							await client.send_message(discord.Object(id=431235681042432020), "Weather Forecast for " + i + "\n---------------------------------------\n")
+							addH += "```Weather Forecast for " + i + "```\n"
 						if ii % 2 == 0 and ii != 0:
 							# addH += str(i) + "\n"
-							await client.send_message(discord.Object(id=431235681042432020),"Date: " + str(i[0]) + "\nMin: " + str(i[1]) + " \xb0" + "C\nMax: " + str(i[2]) + " \xb0" + "C\nDescription: " + str(i[3]) + "\n---------------------------------------\n" )
-							await asyncio.sleep(1)
+							addH += "```Date: " + str(i[0]) + "\nMin: " + str(i[1]) + " \xb0" + "C\nMax: " + str(i[2]) + " \xb0" + "C\nDescription: " + str(i[3]) + "```\n" 
 						ii += 1
 						if ii > 8:
 							break
-				await client.send_message(discord.Object(id=431235681042432020),"Requested by " + message.author.mention)
+				await client.send_message(discord.Object(id = 431235681042432020), addH)
+				await client.send_message(discord.Object(id = 431235681042432020),"Requested by " + message.author.mention)
+				del addH
 		
 		#if message.content.find('tomorrow')
 
